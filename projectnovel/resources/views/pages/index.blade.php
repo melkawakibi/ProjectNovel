@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Project Novel</title>
-
-    <!-- Normalize HTML5 Reset -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">-->
-
-    <!-- styles.css Link -->
-    <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Responsive Shizz -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0">
-
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  </head>
-<body>
-
-<div class="cf" id="topbar">
-	<div class="wrapper cf">
-		<h1 class="logo">Logo</h1>
-		
-		<div class="searchbar">
-		<input type="text" placeholder="search for a story">
-		<input type="submit" value="search">
-		</div>
-
-		<div class="account-btns">
-			<button class="primairy-btn"><a href="">Log in</a></button>
-			<a href="">Sign Up</a>
-		</div>
-	</div>
-</div>
-
+@extends('layouts.default')
+@section('content')
 
 <section class="listSection wrapper">
 	<h1>Recent stories</h1>
@@ -106,6 +73,4 @@
 	</ul>
 </section>
 
-
-</body>
-</html> 
+@stop
