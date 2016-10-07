@@ -8,11 +8,16 @@
 
 namespace App\model;
 
+use Illuminate\Database\Eloquent\Model;
 
-class Chapter
+class Chapter extends Model
 {
 
     protected $table = 'chapter';
 
+    public function novel()
+    {
+        return $this->belongsTo('App\Novel', 'foreign_key');
+    }
 
 }

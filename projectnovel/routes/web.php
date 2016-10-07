@@ -11,17 +11,7 @@
 |
 */
 
-<<<<<<< HEAD
-use App\controller\WelcomeController;
 
-Route::get('/', 'WelcomeController@show');
-
-Route::get('/story', 'NovelController@show');
-
-
-
-=======
 Route::get('/', function () {
     return view('pages/index');
 });
->>>>>>> 94a7218562eeadf3e48faeb4c950b02c651a6fe2
