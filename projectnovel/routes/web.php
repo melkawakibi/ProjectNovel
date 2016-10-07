@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\controller\WelcomeController;
+
+Route::get('/', 'WelcomeController@show');
+
+Route::get('/story', 'NovelController@show');
+
+
+

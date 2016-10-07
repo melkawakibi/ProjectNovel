@@ -75,8 +75,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                     {{date('d/m/y')}}
                 </div>
+
+                @foreach ($data as $familie)
+                    @foreach($familie as $members)
+                    <p>{{ $members . ' el Kawakibi'}}</p>
+                    @endforeach
+                @endforeach
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
