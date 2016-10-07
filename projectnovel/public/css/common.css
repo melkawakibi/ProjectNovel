@@ -1,0 +1,73 @@
+ * {
+ 	margin:0;
+ 	padding:0;
+ 	font-family: 'Open sans';
+ 	box-sizing: border-box;
+ }
+
+
+.cf:before, .cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+ .wrapper {
+ 	width:1440px;
+ 	max-width:90%;
+ 	margin:0 auto;
+ }
+
+
+/* General Style */
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	margin:0;
+}
+
+
+
+/* Body Style */
+#topbar {
+	padding:1em 0;
+	text-align:center;
+}
+
+
+.logo {
+	display: inline-block;
+	float:left;
+}
+
+.searchbar {
+	display:inline-block;
+}
+
+.account-btns {
+	display:inline-block;
+	float:right;
+	padding-top: .5em;
+}
+
+.listSection {
+	padding:4em 0;
+	margin:1em auto;
+}
+
+.listSection h1 {
+	padding-bottom: 2em;
+}
+
+.listSection ul {
+	list-style-type:none;
+}
+
+.listSection li {
+	display: inline-block;
+	width:19%;
+	margin-right:.7%;
+}
