@@ -17,10 +17,15 @@ class CreateNovelTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('author');
-            $table->integer('chapter_id');
+            $table->integer('chapter_id')->unsigned();
             $table->timestamps();
 
         });
+
+        Schema::table('novel', function($table){
+            $table->foreign('chapter_id')->references('id')->on('chapter');
+        });
+
     }
 
     /**
