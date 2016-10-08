@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChapterTable extends Migration
+class CreateNovelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateChapterTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapter', function (Blueprint $table) {
+        Schema::create('novel', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('txt');
+            $table->string('name');
+            $table->string('author');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateChapterTable extends Migration
      */
     public function down()
     {
-        Schema::drop('chapter');
+        Schema::drop('novel');
     }
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        $faker = Faker::create();
+        foreach (range(1,10) as $index) {
+            DB::table('chapter')->insert([
+                'title' => $faker->lastName,
+                'txt' => $faker->text,
+                'novel_id' => $faker->numberBetween($min = 1, $max = 5),
+            ]);
+        }
     }
 }
