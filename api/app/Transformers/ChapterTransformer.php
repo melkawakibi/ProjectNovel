@@ -6,10 +6,9 @@
  * Time: 17:34
  */
 
-namespace App\Transformers\NovelTransformer;
+namespace App\Transformers;
 
 use App\model\Chapter;
-use App\model\Novel;
 use League\Fractal\TransformerAbstract;
 
 class ChapterTransformer extends TransformerAbstract
@@ -28,7 +27,7 @@ class ChapterTransformer extends TransformerAbstract
         ];
     }
 
-    public function embedCheckins(Chapter $chapter)
+    public function embedNovel(Chapter $chapter)
     {
         $novel = $chapter->novel;
         return $this->item($novel, new NovelTransformer());

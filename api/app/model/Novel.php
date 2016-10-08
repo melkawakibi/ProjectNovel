@@ -18,7 +18,7 @@ class Novel extends Model
 
     public function chapters()
     {
-           return $this->hasMany('App\model\Chapter');
+           return $this->hasMany(Chapter::class);
 
     }
 

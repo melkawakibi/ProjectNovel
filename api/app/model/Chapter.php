@@ -17,7 +17,7 @@ class Chapter extends Model
 
     public function novel()
     {
-        return $this->belongsTo('App\Novel');
+        return $this->belongsTo(Novel::class);
     }
 
 }

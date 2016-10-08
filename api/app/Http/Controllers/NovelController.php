@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Transformers\NovelTransformer\NovelTransformer;
+use App\Transformers\NovelTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -23,6 +23,14 @@ class NovelController extends ApiController
     function __construct(Novel $novel)
     {
         $this->novel = $novel;
+    }
+
+    public function index(Manager $fractal, NovelTransformer $novelTransformer)
+    {
+        $novel = $this->novel->take(10)->get();
+        $collection = new Collection($novel, $novelTransformer);
+        $data = $fractal->createData($collection)->toArray();
+        return $this->respondWithCORS($data);
     }
 
     public function store(Request $request)

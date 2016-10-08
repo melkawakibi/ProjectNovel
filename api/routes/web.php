@@ -14,3 +14,12 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->group(['prefix' => 'api'], function($app){
+
+
+$app->get('/novels', 'App\Http\Controllers\NovelController@index');
+$app->get('/novels/{id}', 'App\Http\Controllers\NovelController@show');
+$app->get('/novels/{id}/chapters', 'App\Http\Controllers\NovelController@getChapters');
+
+});

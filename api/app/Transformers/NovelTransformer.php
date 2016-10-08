@@ -1,5 +1,5 @@
 <?php
-namespace App\Transformers\NovelTransformer;
+namespace App\Transformers;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,6 @@ namespace App\Transformers\NovelTransformer;
  * Time: 17:19
  */
 
-use App\model\Chapter;
 use App\model\Novel;
 use League\Fractal\TransformerAbstract;
 
@@ -16,7 +15,7 @@ class NovelTransformer extends TransformerAbstract
 {
 
     protected $availableEmbeds = [
-        'chapter',
+        'chapters',
     ];
 
     public function transform(Novel $novel)
@@ -25,13 +24,8 @@ class NovelTransformer extends TransformerAbstract
             'id'          => (int) $novel->id,
             'name'  => (string) $novel->name,
             'author'   => (string) $novel->author,
+            'chapter' => $novel->chapters,
         ];
-    }
-
-    public function embedCheckins(Novel $novel)
-    {
-        $chapters = $novel->chapters;
-        return $this->collection($chapters, new ChapterTransformer());
     }
 
 }
