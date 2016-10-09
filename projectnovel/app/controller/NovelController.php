@@ -3,16 +3,16 @@
 namespace App\controller;
 
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\View;
-use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 
 class NovelController extends BaseController{
 
     public function show(){
 
-        return View::make('story');
-
+        $client = new Client();
+        $res = $client->request('GET', 'localhost:8001/api/novels');
+        return json_decode($res->getBody(), true);
     }
 
 }
