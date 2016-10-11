@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Transformers\ChapterTransformer;
 use App\Transformers\NovelTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
@@ -54,14 +53,5 @@ class NovelController extends ApiController
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
-
-    public function showChapters(Manager $fractal, ChapterTransformer $chapterTransformer, $novelId){
-
-        $chapter = $this->novel->find($novelId)->chapters;
-        $item = new Collection($chapter, $chapterTransformer);
-        $collection = $fractal->createData($item)->toArray();
-        return $this->respond($collection);
-    }
-
 
 }
