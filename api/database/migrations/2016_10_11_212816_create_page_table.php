@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChapterTable extends Migration
+class CreatePageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateChapterTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapter', function (Blueprint $table) {
+        Schema::create('page', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->integer('novel_id')->unsigned();
+            $table->string('txt');
+            $table->string('type');
+            $table->integer('chapter_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::table('chapter', function($table){
-            $table->foreign('novel_id')->references('id')->on('novel');
+        Schema::table('page', function($table){
+            $table->foreign('chapter_id')->references('id')->on('chapter');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateChapterTable extends Migration
      */
     public function down()
     {
-        Schema::drop('chapter');
+        Schema::dropIfExists('page');
     }
 }

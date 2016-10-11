@@ -17,6 +17,7 @@ class CreateNovelTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('author');
+            $table->string('genre');
             $table->timestamps();
         });
     }

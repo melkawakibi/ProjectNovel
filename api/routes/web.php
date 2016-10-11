@@ -17,12 +17,19 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api'], function($app){
 
+    //Novel
+    $app->get('/novels', 'App\Http\Controllers\NovelController@showNovels');
+    $app->get('/novels/{id}', 'App\Http\Controllers\NovelController@showNovel');
+    $app->post('/novels/create', 'App\Http\Controllers\NovelController@storeNovel');
 
-$app->get('/novels', 'App\Http\Controllers\NovelController@showNovels');
-$app->get('/novels/{id}', 'App\Http\Controllers\NovelController@showNovel');
-$app->get('/novels/{novelId}/chapters', 'App\Http\Controllers\ChapterController@showChapters');
-$app->get('/novels/{novelId}/chapters/{chapterId}', 'App\Http\Controllers\ChapterController@showChapter');
-$app->post('/novels/create', 'App\Http\Controllers\NovelController@storeNovel');
-$app->post('/novels/{id}/create', 'App\Http\Controllers\ChapterController@storeChapter');
+    //Chapter
+    $app->get('/novels/{novelId}/chapters', 'App\Http\Controllers\ChapterController@showChapters');
+    $app->get('/novels/{novelId}/chapters/{chapterId}', 'App\Http\Controllers\ChapterController@showChapter');
+    $app->post('/novels/{id}/create', 'App\Http\Controllers\ChapterController@storeChapter');
+
+    //Page
+    $app->get('/novels/{novelId}/chapters/{chapterId}/pages', 'App\Http\Controllers\PageController@showPages');
+    $app->get('/novels/{novelId}/chapters/{chapterId}/pages/{pageId}', 'App\Http\Controllers\PageController@showPage');
+    $app->post('/novels/{novelId}/chapters/{chapterId}/create', 'App\Http\Controllers\PageController@storePages');
 
 });

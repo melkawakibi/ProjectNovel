@@ -15,6 +15,7 @@ class ChapterTransformer extends TransformerAbstract
 {
     protected $availableEmbeds = [
         'novel',
+        'page',
     ];
 
     public function transform(Chapter $chapter)
@@ -22,8 +23,8 @@ class ChapterTransformer extends TransformerAbstract
         return [
             'id'     => (int) $chapter->id,
             'title'  => (string) $chapter->title,
-            'text'   => (string) $chapter->txt,
             'novel_id'   => (int) $chapter->novel_id,
+            'pages' => $chapter->pages,
         ];
     }
 
