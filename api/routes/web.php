@@ -18,8 +18,10 @@ $app->get('/', function () use ($app) {
 $app->group(['prefix' => 'api'], function($app){
 
 
-$app->get('/novels', 'App\Http\Controllers\NovelController@index');
-$app->get('/novels/{id}', 'App\Http\Controllers\NovelController@show');
-$app->get('/novels/{id}/chapters', 'App\Http\Controllers\NovelController@getChapters');
+$app->get('/novels', 'App\Http\Controllers\NovelController@showNovels');
+$app->get('/novels/{id}', 'App\Http\Controllers\NovelController@showNovel');
+$app->get('/novels/{id}/chapters', 'App\Http\Controllers\NovelController@showChapters');
+$app->post('/novels/create', 'App\Http\Controllers\NovelController@storeNovel');
+$app->post('/novels/{id}/create', 'App\Http\Controllers\ChapterController@storeChapter');
 
 });

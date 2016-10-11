@@ -22,15 +22,9 @@ class ChapterTransformer extends TransformerAbstract
         return [
             'id'     => (int) $chapter->id,
             'title'  => (string) $chapter->title,
-            'text'   => (string) $chapter->text,
+            'text'   => (string) $chapter->txt,
             'novel_id'   => (int) $chapter->novel_id,
         ];
-    }
-
-    public function embedNovel(Chapter $chapter)
-    {
-        $novel = $chapter->novel;
-        return $this->item($novel, new NovelTransformer());
     }
 
 }
