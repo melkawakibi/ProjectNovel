@@ -32,27 +32,39 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* Body Style */
+
+
+/* Header Styles */
 #topbar {
-	padding:1em 0;
+	padding:1.5em 0;
 	text-align:center;
+	border-bottom: 1px solid #eee;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 
 .logo {
 	display: inline-block;
 	float:left;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size:1.5em;
+	line-height:1em;
 }
 
 .searchbar {
 	display:inline-block;
+	line-height: 1em;
 }
 
 .account-btns {
 	display:inline-block;
 	float:right;
-	padding-top: .5em;
+	line-height:1em;
 }
 
+
+/* Index list content styles*/
 .listSection {
 	padding:4em 0;
 	margin:1em auto;

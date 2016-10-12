@@ -8,7 +8,8 @@
 		</div>
 
 		<div class="account-btns">
-			<button class="primairy-btn"><a href="">Log in</a></button>
+			<a href="/add">Create Novel</a>
+			<button class="btn btn-primairy"><a href="">Log in</a></button>
 			<a href="">Sign Up</a>
 		</div>
 	</div>
