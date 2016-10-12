@@ -17,4 +17,4 @@ Route::get('/', function () {
 });
 
 Route::get('/novels', 'NovelController@show');
-Route::get('/img', 'NovelController@showImage');
+Route::get('/novels/img', 'NovelController@getImage');

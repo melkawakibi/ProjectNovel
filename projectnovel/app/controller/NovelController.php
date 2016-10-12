@@ -12,7 +12,12 @@ class NovelController extends BaseController{
 
         $client = new Client();
         $res = $client->request('GET', 'localhost:8001/api/novels');
-        return json_decode($res->getBody(), true);
+        return view('hello')->with('novels', json_decode($res->getBody(), true));
+    }
+
+    public function getImage(){
+
+        return view('hello')->with('img', 'http://localhost:8001/images/bookcover.jpg');
     }
 
 }
