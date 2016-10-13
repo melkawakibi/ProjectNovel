@@ -16,11 +16,7 @@ Route::get('/', function () {
     return view('pages/index');
 });
 
-Route::get('/novels', 'NovelController@show');
-
-Route::get('/novels/img', 'NovelController@getImage');
-
-Route::get('/add', function() {
-	return view('pages/add');
-});
-
+//Novel
+Route::get('/novels', 'NovelController@showNovels');
+Route::get('/novels/{id}', 'NovelController@showNovel');
+Route::get('pages/add', 'NovelController@createNovel');

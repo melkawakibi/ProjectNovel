@@ -18,8 +18,13 @@ class CreateNovelTable extends Migration
             $table->string('name');
             $table->string('author');
             $table->string('genre');
-            $table->string('imgUrl');
+            $table->string('imgUrl')->nullable();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('novel', function($table){
+            $table->foreign('user_id')->references('id')->on('user');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePageTable extends Migration
+class CreateUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreatePageTable extends Migration
      */
     public function up()
     {
-        Schema::create('page', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('txt');
-            $table->string('imgUrl');
-            $table->string('type');
-            $table->integer('chapter_id')->unsigned();
+            $table->string('username');
+            $table->string('password');
+            $table->string('email');
             $table->timestamps();
-        });
-
-        Schema::table('page', function($table){
-            $table->foreign('chapter_id')->references('id')->on('chapter');
         });
     }
 
@@ -34,6 +29,6 @@ class CreatePageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page');
+        Schema::dropIfExists('user');
     }
 }

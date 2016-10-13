@@ -30,6 +30,9 @@ class NovelController extends ApiController
         $this->novel = new Novel();
         $this->novel->name = $req->get('name');
         $this->novel->author = $req->get('author');
+        $this->novel->genre = $req->get('genre');
+        $this->novel->imgUrl = $req->get('imgUrl');
+        $this->novel->user_id = $req->get('user_id');
         $this->novel->save();
 
 //        return redirect()->action(

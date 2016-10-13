@@ -25,6 +25,8 @@ class NovelTransformer extends TransformerAbstract
             'name'  => (string) $novel->name,
             'author'   => (string) $novel->author,
             'genre'   => (string) $novel->genre,
+            'imgUrl'   => (string) $novel->imgUrl,
+            'user_id'   => (int) $novel->user_id,
             'chapter' => $novel->chapters,
         ];
     }

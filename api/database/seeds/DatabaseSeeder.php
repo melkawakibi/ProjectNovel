@@ -15,10 +15,24 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
+            DB::table('user')->insert([
+                'username' => $faker->userName,
+                'password' => $faker->password,
+                'email' => $faker->email,
+                'created_at' => $faker->dateTime,
+                'updated_at' => $faker->dateTime,
+            ]);
+        }
+
+        $faker = Faker::create();
+        foreach (range(1,10) as $index) {
             DB::table('novel')->insert([
                 'name' => $faker->colorName,
                 'author' => $faker->lastName,
                 'genre' => $faker->word,
+                'user_id' => $faker->numberBetween($min = 1, $max = 6),
+                'created_at' => $faker->dateTime,
+                'updated_at' => $faker->dateTime,
             ]);
         }
 
@@ -26,6 +40,8 @@ class DatabaseSeeder extends Seeder
             DB::table('chapter')->insert([
                 'title' => $faker->monthName,
                 'novel_id' => $faker->numberBetween($min = 1, $max = 5),
+                'created_at' => $faker->dateTime,
+                'updated_at' => $faker->dateTime,
             ]);
         }
 
@@ -34,6 +50,8 @@ class DatabaseSeeder extends Seeder
                 'txt' => $faker->text,
                 'type' => $faker->word,
                 'chapter_id' => $faker->numberBetween($min = 1, $max = 5),
+                'created_at' => $faker->dateTime,
+                'updated_at' => $faker->dateTime,
             ]);
         }
     }

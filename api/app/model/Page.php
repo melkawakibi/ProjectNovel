@@ -16,7 +16,7 @@ class Page extends Model
 
     protected $table = 'page';
 
-    public function novel()
+    public function chapter()
     {
         return $this->belongsTo(Chapter::class);
     }

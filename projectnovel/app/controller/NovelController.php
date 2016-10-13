@@ -1,23 +1,41 @@
 <?php
 
-namespace App\controller;
+namespace App\Controller;
 
+use App\Model\Novel;
 use Illuminate\Routing\Controller as BaseController;
-use GuzzleHttp\Client;
+use App\Service\Implement\NovelServiceImpl;
 
+class NovelController extends BaseController
+{
 
-class NovelController extends BaseController{
+    private $novelService;
 
-    public function show(){
+    public function showNovel($id)
+    {
+        $imageUrlBase = 'http://localhost:8001/images/';
+        $this->novelService = new NovelServiceImpl();
+        $res = $this->novelService->find($id);
 
-        $client = new Client();
-        $res = $client->request('GET', 'localhost:8001/api/novels');
-        return view('hello')->with('novels', json_decode($res->getBody(), true));
+        return view('pages/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => $imageUrlBase));
     }
 
-    public function getImage(){
+    public function showNovels()
+    {
+        $imageUrlBase = 'http://localhost:8001/images/';
+        $this->novelService = new NovelServiceImpl();
+        $res = $this->novelService->findAll();
 
-        return view('hello')->with('img', 'http://localhost:8001/images/bookcover.jpg');
+        return view('hello')->with(array('novels' => json_decode($res->getBody(), true), 'url' => $imageUrlBase));
+    }
+
+    public function createNovel()
+    {
+        $this->novelService = new NovelServiceImpl();
+        $novel = new Novel('Singer', 'B. Darin', 'Music', 'bookcover.jpg', 1);
+        $res = $this->novelService->create($novel);
+
+        return view('hello')->with('success', $res->getStatusCode());
     }
 
 }
