@@ -10,6 +10,7 @@ namespace App\Service\Implement;
 
 use App\Service\NovelService;
 use GuzzleHttp\Client;
+use Lang;
 
 class NovelServiceImpl implements NovelService
 {
@@ -22,14 +23,14 @@ class NovelServiceImpl implements NovelService
 
     public function find($id)
     {
-        $res = $this->client->request('GET', "localhost:8001/api/novels/$id'");
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . $id);
 
         return $res;
     }
 
     public function findAll()
     {
-        $res = $this->client->request('GET', 'localhost:8001/api/novels');
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url'));
 
         return $res;
     }
@@ -37,7 +38,7 @@ class NovelServiceImpl implements NovelService
     public function create($novel)
     {
 
-        $res = $this->client->request('POST', 'localhost:8001/api/novels/create', [
+        $res = $this->client->request('POST', Lang::get('strings.api_novels_create_url'), [
             'form_params' => [
                 'name' => $novel->name,
                 'author' => $novel->author,

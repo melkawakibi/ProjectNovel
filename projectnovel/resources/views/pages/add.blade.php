@@ -3,16 +3,25 @@
 
 <section class="listSection wrapper">
 
-<form>
-	Select cover photo to upload:
-    <input type="file" name="fileToUpload">
-    Title
-	<input type="text" placeholder="Title">
-	Description
-	<textarea placeholder="description"></textarea>
-	<input type="submit" value="create novel">
-</form>
+	{{ Form::open(array('route' => 'novel.create', 'files' => true)) }}
 
+		<!-- name -->
+		{{ Form::label('name', 'name') }}
+		{{ Form::text('name') }}
+
+		<!-- author -->
+		{{ Form::label('author', 'author') }}
+		{{ Form::text('author') }}
+
+		<!-- genre -->
+		{{ Form::label('genre', 'genre') }}
+		{{ Form::text('genre') }}
+
+
+		{{ Form::file('image') }}
+		{{ Form::submit('Create') }}
+
+		{{ Form::close() }}
 </section>
 
 @stop

@@ -14,8 +14,13 @@
     @endif
 </ul>
 
-@if(! empty($success))
-{{$success}}
+@if(! empty($headers))
+{{$headers}}
+@endif
+
+@if(! empty($path))
+{{$path}}
+{{$name}}
 @endif
 
 </body>

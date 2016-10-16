@@ -11,12 +11,21 @@
 |
 */
 
+Route::get('/',  [
+    'as' => 'home.list', 'uses' => 'NovelController@showHomeNovels'
+]);
 
-Route::get('/', function () {
-    return view('pages/index');
+Route::get('/add', function () {
+    return view('pages/add');
 });
 
 //Novel
-Route::get('/novels', 'NovelController@showNovels');
-Route::get('/novels/{id}', 'NovelController@showNovel');
-Route::get('pages/add', 'NovelController@createNovel');
+Route::get('/novels',  [
+    'as' => 'novel.list', 'uses' => 'NovelController@showNovels'
+]);
+Route::get('/novels/{id}',  [
+    'as' => 'novel.item', 'uses' => 'NovelController@showNovel'
+]);
+Route::post('/novels/create',  [
+    'as' => 'novel.create', 'uses' => 'NovelController@createNovel'
+]);

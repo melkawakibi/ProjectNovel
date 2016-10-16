@@ -4,6 +4,7 @@ namespace App\Model;
 
 class Novel{
 
+    private $id;
     private $name;
     private $author;
     private $genre;

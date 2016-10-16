@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('content')
 
-<ul>
     @if(! empty($novel))
-        <li><b> Novel ID: {{ $novel['data']['id'] }} </b></li>
-        <li> name: {{ $novel['data']['name'] }} </li>
-        <li> author: {{ $novel['data']['author'] }} </li>
-        <li> genre: {{ $novel['data']['genre'] }} </li>
-        <li> user id: {{ $novel['data']['user_id'] }} </li>
-        {{ Html::image($url . $novel['data']['imgUrl']) }}
+            {{Html::image($url . $novel['data']['imgUrl'])}}
+            {{ $novel['data']['id']  }}
+            {{ $novel['data']['name']  }}
+            {{ $novel['data']['author']  }}
     @endif
-</ul>
 
-</body>
-</html>
+    @if(! empty($headers))
+        @foreach($headers as $header)
+            {{$header}}
+        @endforeach
+    @endif
+
+@stop
