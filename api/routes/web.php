@@ -17,9 +17,16 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api'], function($app){
 
+    //User
+    $app->get('/users', 'App\Http\Controllers\UserController@showUsers');
+    $app->get('/users/{id}', 'App\Http\Controllers\UserController@showUser');
+    //$app->post('/users/create', 'App\Http\Controllers\Controller@store');
+
     //Novel
     $app->get('/novels', 'App\Http\Controllers\NovelController@showNovels');
     $app->get('/novels/{id}', 'App\Http\Controllers\NovelController@showNovel');
+    $app->get('/novels/user/{uId}', 'App\Http\Controllers\NovelController@showNovelByUserId');
+    $app->get('/novels/user/{uId}/latest', 'App\Http\Controllers\NovelController@showNovelByUserIdLatestNovel');
     $app->post('/novels/create', 'App\Http\Controllers\NovelController@storeNovel');
 
     //Chapter

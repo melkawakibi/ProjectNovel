@@ -50,4 +50,18 @@ class NovelServiceImpl implements NovelService
 
         return $res;
     }
+
+    public function findNovelByUserId($id)
+    {
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . 'user/' . $id);
+
+        return $res;
+    }
+
+    public function findNovelByUserIdLatestNovel($id)
+    {
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . 'user/' . $id. '/latest');
+
+        return $res;
+    }
 }

@@ -7,23 +7,36 @@
  * Time: 19:51
  */
 namespace App\Service\Implement;
+use GuzzleHttp\Client;
+use Lang;
 
 use App\Service\UserService;
 
 class UserServiceImpl implements UserService
 {
 
-    public function find()
+    private $client;
+
+    public function __construct()
     {
-        // TODO: Implement find() method.
+        $this->client = new Client();
+    }
+
+    public function find($id)
+    {
+        $res = $this->client->request('GET', Lang::get('strings.api_users_url') . $id);
+
+        return $res;
     }
 
     public function findAll()
     {
-        // TODO: Implement findAll() method.
+        $res = $this->client->request('GET', Lang::get('strings.api_users_url'));
+
+        return $res;
     }
 
-    public function create()
+    public function create($user)
     {
         // TODO: Implement create() method.
     }

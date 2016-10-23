@@ -15,6 +15,7 @@ return [
     //api
     'base_api_url' => 'localhost:8001/api/',
     'api_novels_url' => 'localhost:8001/api/novels/',
+    'api_users_url' => 'localhost:8001/api/users/',
     'api_novels_create_url' => 'localhost:8001/api/novels/create'
 
 ];

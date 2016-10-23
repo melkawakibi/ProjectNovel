@@ -5,19 +5,34 @@ namespace App\Model;
 class Chapter
 {
 
-    public function __construct()
-    {
+    private $title;
+    private $novel_id;
 
-    }
-
-    public function __set($name, $value)
+    public function __construct($title, $novel_id)
     {
-        // TODO: Implement __set() method.
+        $this->title = $title;
+        $this->novel_id = $novel_id;
     }
 
     public function __get($name)
     {
-        // TODO: Implement __get() method.
+        return $this->$name;
+    }
+
+    public function __set($name, $value)
+    {
+        switch ($name){
+
+            CASE "title":
+                $this->title = $value;
+                break;
+            CASE "novel_id":
+                $this->novel_id = $value;
+                break;
+            default:
+                echo $name . " Not Found";
+        }
+
     }
 
 }

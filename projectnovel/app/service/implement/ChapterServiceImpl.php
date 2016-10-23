@@ -8,21 +8,42 @@
  */
 namespace App\Service\Implement;
 
+use App\Service\ChapterService;
+use GuzzleHttp\Client;
+use Lang;
+
 class ChapterServiceImpl implements ChapterService
 {
+    private $client;
 
-    public function find()
+    public function __construct()
     {
-        // TODO: Implement find() method.
+        $this->client = new Client();
     }
 
-    public function findAll()
+    public function find($nId, $cId)
     {
-        // TODO: Implement findAll() method.
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . $nId . '/chapters/' . $cId);
+
+        return $res;
     }
 
-    public function create()
+    public function findAll($nId)
     {
-        // TODO: Implement create() method.
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . $nId . '/chapters/');
+
+        return $res;
+    }
+
+    public function create($chapter, $nId)
+    {
+        $res = $this->client->request('POST', Lang::get('strings.api_novels_url') . $nId . '/create', [
+            'form_params' => [
+                'title' => $chapter->title,
+                'novel_id' => $chapter->novel_id,
+            ]
+        ]);
+
+        return $res;
     }
 }

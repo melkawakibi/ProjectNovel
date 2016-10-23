@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Sineld\BladeSet\BladeSetServiceProvider::class,
 
         /*
          * Package Service Providers...

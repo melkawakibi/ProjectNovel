@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\Novel;
 use Illuminate\Routing\Controller as BaseController;
 use App\Service\Implement\NovelServiceImpl;
+use App\Service\Implement\UserServiceImpl;
 use Illuminate\Http\Request;
 use Lang;
 use Validator;
@@ -14,10 +15,16 @@ class NovelController extends BaseController
 {
 
     private $novelService;
+    private $userService;
+
+    public function __construct()
+    {
+        $this->novelService = new NovelServiceImpl();
+        $this->userService = new UserServiceImpl();
+    }
 
     public function showHomeNovels()
     {
-        $this->novelService = new NovelServiceImpl();
         $res = $this->novelService->findAll();
 
         return view('pages/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
@@ -25,7 +32,6 @@ class NovelController extends BaseController
 
     public function showNovel($id)
     {
-        $this->novelService = new NovelServiceImpl();
         $res = $this->novelService->find($id);
 
         return view('pages/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
@@ -33,7 +39,6 @@ class NovelController extends BaseController
 
     public function showNovels()
     {
-        $this->novelService = new NovelServiceImpl();
         $res = $this->novelService->findAll();
 
         return view('hello')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
@@ -41,7 +46,6 @@ class NovelController extends BaseController
 
     public function createNovel(Request $request)
     {
-        $this->novelService = new NovelServiceImpl();
         $input = $request->all();
         $file = array('image' => $request->file('image'));
 
@@ -59,10 +63,17 @@ class NovelController extends BaseController
             $newPath = Lang::get('strings.image_dir') . $newFileName;
             Image::make($image->getRealPath())->resize(150,200)->save($newPath);
             $novel = new Novel($input['name'], $input['author'], $input['genre'], $newFileName, 1);
-            $res = $this->novelService->create($novel);
+            $this->novelService->create($novel);
         };
-            //find newest entry with user id
-        return view('hello')->with(array());
+
+        $user = $this->userService->find(1);
+        $user = json_decode($user->getBody(), true);
+        $res = $this->novelService->findNovelByUserIdLatestNovel($user['data']['id']);
+
+        $novel = json_decode($res->getBody(), true);
+        $id = $novel['data']['id'];
+
+        return redirect('/novels/' . $id)->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
     }
 
 }

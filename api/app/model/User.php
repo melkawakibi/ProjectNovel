@@ -8,17 +8,13 @@
 
 namespace App\model;
 
+use Illuminate\Database\Eloquent\Model;
 
-class User
+class User extends Model
 {
 
-    protected $tabel = 'user';
+    protected $table = 'user';
 
     protected $fillable = ['username', 'password', 'email'];
-
-    public function novels()
-    {
-        return $this->hasMany(Novel::class);
-    }
 
 }

@@ -11,8 +11,8 @@ namespace App\Service;
 interface UserService
 {
 
-    public function find();
+    public function find($id);
     public function findAll();
-    public function create();
+    public function create($user);
 
 }

@@ -32,7 +32,6 @@ class ChapterController extends ApiController
     {
         $novel = $this->novel->find($novelId);
         $this->chapter->title = $req->get('title');
-        $this->chapter->txt = $req->get('txt');
         $this->chapter->novel_id = $novel->id;
         $this->chapter->save();
     }
