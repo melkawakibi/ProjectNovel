@@ -3,7 +3,7 @@
 <div class="main-content-box-container">
 	<div class="main-content-box-header cf mar-bot-100">
 		<h2>Featured updates</h2>
-		<button class="btn btn-tertiary"><a href="/recent_updates">View more</a></button>
+		<button class="btn btn-tertiary"><a href="#">View more</a></button>
 	</div>	
 
 
@@ -23,7 +23,7 @@
 <div class="main-content-box-container">
 	<div class="main-content-box-header cf mar-bot-100">
 		<h2>Popular novels</h2>
-		<button class="btn btn-tertiary"><a href="/popular_novels">View more</a></button>
+		<button class="btn btn-tertiary"><a href="#">View more</a></button>
 	</div>	
 
 

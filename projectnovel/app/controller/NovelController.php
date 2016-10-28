@@ -61,7 +61,7 @@ class NovelController extends BaseController
             $extension = $file['image']->getClientOriginalExtension(); // getting image extension
             $newFileName = rand(11111,99999).'.'.$extension; // renameing image
             $newPath = Lang::get('strings.image_dir') . $newFileName;
-            Image::make($image->getRealPath())->resize(150,200)->save($newPath);
+            Image::make($image->getRealPath())->save($newPath);
             $novel = new Novel($input['name'], $input['author'], $input['genre'], $newFileName, 1);
             $this->novelService->create($novel);
         };

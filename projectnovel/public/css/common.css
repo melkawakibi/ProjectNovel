@@ -235,28 +235,48 @@ button {
   color: rgba(0, 0, 0, 0.6);
 }
 
+.main-sidenav-container a:hover {
+  color: #2979ff;
+}
+
 /* main content box styling */
-.main-content-box-container ul {
-  background-color: red;
-  list-style-type: none;
+.main-content-box-container .main-list-container {
+  vertical-align: top;
+  margin-bottom: 145px;
 }
 
-.main-content-box-container ul li {
+.main-content-box-container .main-list-container li {
   display: inline-block;
-  background-color: lightgreen;
-  margin-right: 40px;
-  width: 25%;
+  margin-right: 59px;
+  width: 20%;
 }
 
-.main-content-box-container ul li img {
-  display: block;
+.main-content-box-container .main-list-container li:last-child {
+  margin-right: 0;
 }
 
-.main-content-box-container ul li a {
+.main-content-box-container .main-list-container li .main-image-container {
   display: block;
+  width: auto;
+  height: 276px;
+  overflow: hidden;
+}
+
+.main-content-box-container .main-list-container li .main-image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content-box-container .main-list-container li .main-novel-info {
+  overflow: hidden;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.main-content-box-container .main-list-container li .main-novel-info a {
   font-size: 18px;
   font-weight: 700;
-  margin-top: 20px;
 }
 
 .main-content-box-header {

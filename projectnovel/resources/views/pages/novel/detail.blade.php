@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('content')
+@section('main')
 
     @if(! empty($novel))
             {{Html::image($url . $novel['data']['imgUrl'])}}

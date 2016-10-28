@@ -11,16 +11,27 @@
 |
 */
 
+//Home
 Route::get('/',  [
     'as' => 'home.list', 'uses' => 'NovelController@showHomeNovels'
 ]);
 
+Route::get('/popular_novels', function () {
+    return view('pages/index/popular_novels');
+});
+
+Route::get('/recent_updates', function () {
+    return view('pages/index/recent_updates');
+});
+
+
+//Adds
 Route::get('/add', function () {
-    return view('pages/add');
+    return view('pages/novel/add');
 });
 
 Route::get('/add_chapter', function () {
-    return view('pages/add_chapter');
+    return view('pages/novel/add_chapter');
 });
 
 //Novel

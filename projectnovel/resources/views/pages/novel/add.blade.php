@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('main')
 
-<div class="">
+<section class="listSection wrapper">
 
 	{{ Form::open(array('route' => 'novel.create', 'files' => true)) }}
 
@@ -22,6 +22,9 @@
 		{{ Form::submit('Create') }}
 
 		{{ Form::close() }}
-</div>
+</section>
 
 @stop
+
+		{{ Form::label('genre', 'genre') }}
+		{{ Form::text('genre') }}
