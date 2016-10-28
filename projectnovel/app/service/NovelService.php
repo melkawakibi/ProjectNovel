@@ -12,7 +12,7 @@ interface NovelService
 {
     public function find($id);
     public function findNovelByUserId($id);
+    public function findNovelByUserIdLatestNovel($id);
     public function findAll();
     public function create($novel);
-    public function findNovelByUserIdLatestNovel($id);
 }

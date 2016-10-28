@@ -44,7 +44,6 @@ class PageController extends ApiController
             $this->page->chapter_id = $chapter->id;
             $this->page->save();
         }
-
     }
 
     public function showPages(Manager $fractal, PageTransformer $pageTransformer, $novelId, $chapterId){

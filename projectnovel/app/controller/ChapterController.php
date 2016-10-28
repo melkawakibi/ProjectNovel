@@ -44,6 +44,7 @@ class ChapterController extends BaseController
         $chapter = new Chapter($input['title'], $nId);
         $res = $this->chapterService->create($chapter, $nId);
 
+
         return view('pages/detail');
     }
 
