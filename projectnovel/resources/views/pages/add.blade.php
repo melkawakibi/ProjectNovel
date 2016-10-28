@@ -1,5 +1,5 @@
-@extends('layouts.default')
-@section('content')
+@extends('layouts.main')
+@section('main')
 
 <section class="listSection wrapper">
 
@@ -13,7 +13,7 @@
 		{{ Form::label('author', 'author') }}
 		{{ Form::text('author') }}
 
-		<!-- genre -->
+		<!-- genre --> 
 		{{ Form::label('genre', 'genre') }}
 		{{ Form::text('genre') }}
 

@@ -1,11 +1,11 @@
-@extends('layouts.default')
+@extends('layouts.main')
 @section('content')
 
     @if(! empty($novel))
             {{Html::image($url . $novel['data']['imgUrl'])}}
             {{ $novel['data']['id']  }}
             {{ $novel['data']['name']  }}
-            {{ $novel['data']['author']  }}
+            {{ $novel['data']['author']  }} 
             @set('chapters', $novel['data']['chapter'])
     @endif
 

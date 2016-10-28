@@ -27,21 +27,21 @@ class NovelController extends BaseController
     {
         $res = $this->novelService->findAll();
 
-        return view('pages/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
+        return view('pages/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
     public function showNovel($id)
     {
         $res = $this->novelService->find($id);
 
-        return view('pages/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
+        return view('pages/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
     public function showNovels()
     {
         $res = $this->novelService->findAll();
 
-        return view('hello')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
+        return view('hello')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
     public function createNovel(Request $request)
@@ -73,7 +73,7 @@ class NovelController extends BaseController
         $novel = json_decode($res->getBody(), true);
         $id = $novel['data']['id'];
 
-        return redirect('/novels/' . $id)->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_url')));
+        return redirect('/novels/' . $id)->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
 }
