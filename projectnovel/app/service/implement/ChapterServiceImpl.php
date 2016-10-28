@@ -46,4 +46,11 @@ class ChapterServiceImpl implements ChapterService
 
         return $res;
     }
+
+    public function findChapterByNovelIdLatestChapter($id)
+    {
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . 'novel/' . $id. '/latest');
+
+        return $res;
+    }
 }

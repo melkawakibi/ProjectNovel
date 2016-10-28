@@ -24,11 +24,14 @@ Route::get('/recent_updates', function () {
     return view('pages/index/recent_updates');
 });
 
-
 //Adds
 Route::get('/add', function () {
     return view('pages/novel/add');
 });
+
+Route::get('/novels/{nId}/add_chapter',  [
+    'as' => 'chaper.add', 'uses' => 'ChapterController@showCreateChapter'
+]);
 
 Route::get('/add_chapter', function () {
     return view('pages/novel/add_chapter');
@@ -52,6 +55,7 @@ Route::get('/novels/{id}/chapters',  [
 Route::get('/novels/{nId}/chapters/{cId}',  [
     'as' => 'chapter.item', 'uses' => 'ChapterController@showChapter'
 ]);
-Route::get('/novels/{nId}/create',  [
+
+Route::post('/novels/{nId}/create',  [
     'as' => 'chapter.create', 'uses' => 'ChapterController@createChapter'
 ]);

@@ -23,6 +23,7 @@ class PageTransformer extends TransformerAbstract
             'id'     => (int) $page->id,
             'text'   => (string) $page->txt,
             'type'   => (string) $page->type,
+            'imgUrl' => (string) $page->imgUrl,
             'chapter_id'   => (int) $page->chapter_id,
         ];
     }

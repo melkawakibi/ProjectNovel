@@ -53,4 +53,20 @@ class ChapterController extends ApiController
         return $this->respond($data);
     }
 
+    public function showChapterByNovelIdLatestChapter(Manager $fractal, ChapterTransformer $chapterTransformer, $nId){
+
+        $query = Chapter::where('novel_id', $nId)->max('id');
+        $id_max = json_encode($query);
+
+        //TODO check null on Novel
+        $chapter = $this->chapter->where('novel_id', '=', $nId)
+            ->where('id', '=', $id_max)
+            ->first();
+
+        $item = new Item($chapter, $chapterTransformer);
+        $data = $fractal->createData($item)->toArray();
+        return $this->respond($data);
+
+    }
+
 }

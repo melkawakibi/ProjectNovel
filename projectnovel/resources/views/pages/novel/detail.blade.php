@@ -7,6 +7,7 @@
             {{ $novel['data']['name']  }}
             {{ $novel['data']['author']  }} 
             @set('chapters', $novel['data']['chapter'])
+            @set('id', $novel['data']['id'])
     @endif
 
     @if(! empty($chapters))
@@ -16,6 +17,6 @@
     @endforeach
     @endif
 
-    <a href="/add_chapter">Create Chapters</a>
+    <a href="{{$id . '/add_chapter'}}">Create Chapters</a>
 
 @stop

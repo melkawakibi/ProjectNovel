@@ -32,6 +32,7 @@ $app->group(['prefix' => 'api'], function($app){
     //Chapter
     $app->get('/novels/{novelId}/chapters', 'App\Http\Controllers\ChapterController@showChapters');
     $app->get('/novels/{novelId}/chapters/{chapterId}', 'App\Http\Controllers\ChapterController@showChapter');
+    $app->get('/novels/novel/{nId}/latest', 'App\Http\Controllers\ChapterController@showChapterByNovelIdLatestChapter');
     $app->post('/novels/{id}/create', 'App\Http\Controllers\ChapterController@storeChapter');
 
     //Page

@@ -15,8 +15,7 @@
 
 		<!-- genre --> 
 		{{ Form::label('genre', 'genre') }}
-		{{ Form::select('genre', array('Action', 'Adventure','Comedy','Drama','Fantasy','Horror','Mystery', 'Romance', 'Sciencefiction', 'Thriller')) }}
-
+		{{ Form::select('genre', array('Action' => 'Action', 'Adventure','Comedy' => 'Comedy','Drama' => 'Drama','Fantasy' => 'Fantasy','Horror' => 'Horror','Mystery' => 'Mystery', 'Romance' => 'Romance', 'Sciencefiction' => 'Sciencefiction', 'Thriller' => 'Thriller')) }}
 
 		{{ Form::file('image') }}
 		{{ Form::submit('Create') }}
@@ -25,6 +24,3 @@
 </section>
 
 @stop
-
-		{{ Form::label('genre', 'genre') }}
-		{{ Form::text('genre') }}

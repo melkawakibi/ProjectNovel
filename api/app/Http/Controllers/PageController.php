@@ -40,7 +40,7 @@ class PageController extends ApiController
         foreach($txt as $index => $value ) {
             $this->page = new Page();
             $this->page->txt = $value;
-            $this->page->type = $type[$index];
+            $this->page->type = $type;
             $this->page->chapter_id = $chapter->id;
             $this->page->save();
         }

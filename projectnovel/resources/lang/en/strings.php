@@ -9,7 +9,7 @@
 return [
 
     //image
-    'image_dir' => 'C:\\Users\\Salah\\p\\api\\public\\images\\novel-covers\\',
+    'image_dir' => 'C:\\Users\\Mohamed\\p\\api\\public\\images\\novel-covers\\',
     'image_cover_url' => 'http://localhost:8001/images/novel-covers/',
     'image_background_url' => 'http://localhost:8001/images/backgrounds/',
 
@@ -18,5 +18,4 @@ return [
     'api_novels_url' => 'localhost:8001/api/novels/',
     'api_users_url' => 'localhost:8001/api/users/',
     'api_novels_create_url' => 'localhost:8001/api/novels/create'
-
 ];

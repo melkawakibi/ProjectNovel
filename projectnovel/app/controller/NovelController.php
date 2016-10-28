@@ -34,7 +34,7 @@ class NovelController extends BaseController
     {
         $res = $this->novelService->find($id);
 
-        return view('pages/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
+        return view('pages/novel/detail')->with(array('novel' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
     public function showNovels()
@@ -66,9 +66,9 @@ class NovelController extends BaseController
             $this->novelService->create($novel);
         };
 
-        $user = $this->userService->find(1);
-        $user = json_decode($user->getBody(), true);
-        $res = $this->novelService->findNovelByUserIdLatestNovel($user['data']['id']);
+        $user_json_raw = $this->userService->find(1);
+        $user_json = json_decode($user_json_raw->getBody(), true);
+        $res = $this->novelService->findNovelByUserIdLatestNovel($user_json['data']['id']);
 
         $novel = json_decode($res->getBody(), true);
         $id = $novel['data']['id'];
