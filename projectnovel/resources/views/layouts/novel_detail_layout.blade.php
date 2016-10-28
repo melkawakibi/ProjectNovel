@@ -1,0 +1,1 @@
+<!-- novel detail layout -->

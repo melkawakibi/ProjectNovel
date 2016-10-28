@@ -9,7 +9,7 @@
 return [
 
     //image
-    'image_dir' => 'C:\\Users\\Salah\\p\\api\\public\\images\\',
+    'image_dir' => 'C:\\Users\\Salah\\p\\api\\public\\images\\novel-covers\\',
     'image_cover_url' => 'http://localhost:8001/images/novel-covers/',
     'image_background_url' => 'http://localhost:8001/images/backgrounds/',
 

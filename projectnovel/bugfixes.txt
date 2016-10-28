@@ -1,0 +1,3 @@
+Bugfixes:
+
+- Novels in list -> titel length problem

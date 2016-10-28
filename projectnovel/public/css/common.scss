@@ -232,6 +232,9 @@ button {
 		padding-bottom:28px;
 		font-size: 16px;
 		color:$secondary-black;
+		&:hover {
+			color:$primary-color;
+		}
 	}
 
 }
@@ -240,22 +243,35 @@ button {
 /* main content box styling */
 
 .main-content-box-container {
-	ul {
-		background-color:red;
-		list-style-type:none;
+	.main-list-container {
+		vertical-align: top;
+		margin-bottom:145px;
 		li {
 			display: inline-block;
-			background-color:lightgreen;
-			margin-right: 40px;
-			width:25%;
-			img {
-				display: block;
+			margin-right: 59px;
+			width:20%;
+			&:last-child{
+				margin-right: 0;
 			}
-			a {
+			.main-image-container{
 				display:block;
-				font-size: 18px;
-				font-weight: 700;
+				width:auto;
+				height:276px;
+				overflow: hidden;
+				img {
+					display: block;
+					width:100%;
+					height:100%;
+				}
+			}
+			.main-novel-info {
+				overflow:hidden;
 				margin-top: 20px;
+				display: inline-block;
+				a {
+					font-size: 18px;
+					font-weight: 700;
+				}
 			}
 		}
 	}

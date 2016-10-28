@@ -7,13 +7,13 @@
 <div class="main-bg">
 
     <header>
-        @include('includes.main-header')
+        @include('includes.main_header')
     </header>
 
     <div class="main-content-container wrapper cf"> 
         <div class="main-content mar-top-140">
             <div class="sidebar left">
-                @include('includes.main-sidebar-menu')
+                @include('includes.main_sidebar_menu')
             </div>
             <div class="main-content-box left">
                 @yield('main')
