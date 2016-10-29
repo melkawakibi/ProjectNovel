@@ -12,7 +12,7 @@
         @include('includes.secondary_header')
     </header>
 
-    <div class="add-content-container wrapper cf"> 
+    <div class="add-content-container wrapper"> 
         <div class="add-content">
                 @yield('add_content')
         </div>
