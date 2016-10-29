@@ -37,7 +37,6 @@ class NovelController extends ApiController
         $this->novel->imgUrl = $req->get('imgUrl');
         $this->novel->user_id = $req->get('user_id');
         $this->novel->save();
-
     }
 
     public function showNovels(Manager $fractal, NovelTransformer $novelTransformer)
