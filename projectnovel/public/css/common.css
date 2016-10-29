@@ -65,11 +65,12 @@ button {
   border-radius: 5px;
   padding: 0.5em 2em;
   outline: none;
+  cursor: pointer;
   transition: .2s ease-in-out;
 }
 
 .btn-primary {
-  background: #2979ff;
+  background: #304ffe;
 }
 
 .btn-primary a {
@@ -86,16 +87,17 @@ button {
 }
 
 .btn-tertiary {
-  border: 1px solid #2979ff;
+  background-color: white;
+  border: 1px solid #304ffe;
 }
 
 .btn-tertiary a {
-  color: #2979ff;
+  color: #304ffe;
   font-size: 14px;
 }
 
 /* main header styling */
-.header-container {
+.header-container .main-header-container {
   background: url("http://localhost:8001/images/backgrounds/headerbg1.jpg");
   background-size: cover;
   background-position: center;
@@ -103,7 +105,7 @@ button {
   position: relative;
 }
 
-.header-container .semi-transparent-layer {
+.header-container .main-header-container .semi-transparent-layer {
   background-color: rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 0;
@@ -112,11 +114,11 @@ button {
   height: 100%;
 }
 
-.header-container .semi-transparent-layer .topbar {
+.header-container .topbar {
   margin-top: 30px;
 }
 
-.header-container .semi-transparent-layer .topbar .logo {
+.header-container .topbar .logo {
   text-transform: uppercase;
   color: white;
   float: left;
@@ -124,11 +126,12 @@ button {
   font-size: 24px;
 }
 
-.header-container .semi-transparent-layer .topbar .searchbar {
+.header-container .topbar .searchbar {
   display: inline-block;
+  margin: 0 79.859px 0 276.906px;
 }
 
-.header-container .semi-transparent-layer .topbar .searchbar input[type=text] {
+.header-container .topbar .searchbar input[type='text'] {
   padding: .6em 0 .6em 1em;
   width: 400px;
   border-radius: 5px 0 0 5px;
@@ -138,7 +141,7 @@ button {
   border-right: none;
 }
 
-.header-container .semi-transparent-layer .topbar .searchbar button[type=submit] {
+.header-container .topbar .searchbar button[type='submit'] {
   background: #eee;
   border: 1px solid #cfd8dc;
   border-radius: 0 5px 5px 0;
@@ -149,32 +152,32 @@ button {
   transition: .2s ease-in-out;
 }
 
-.header-container .semi-transparent-layer .topbar .searchbar button[type=submit]:hover {
+.header-container .topbar .searchbar button[type='submit']:hover {
   background: #dddddd;
   color: #78909c;
 }
 
-.header-container .semi-transparent-layer .topbar .account-btns {
+.header-container .topbar .account-btns {
   float: right;
 }
 
-.header-container .semi-transparent-layer .topbar .account-btns button {
+.header-container .topbar .account-btns button {
   margin-left: 14px;
 }
 
-.header-container .semi-transparent-layer .slogan-container {
+.header-container .slogan-container {
   text-align: center;
   margin-top: 150px;
 }
 
-.header-container .semi-transparent-layer .slogan-container .main-header-title {
+.header-container .slogan-container .main-header-title {
   color: white;
   font-size: 3rem;
   font-weight: 400;
   line-height: 1.5;
 }
 
-.header-container .semi-transparent-layer .slogan-container .main-header-subtitle {
+.header-container .slogan-container .main-header-subtitle {
   color: white;
   font-size: 1.5em;
   font-weight: 300;
@@ -194,6 +197,18 @@ button {
   font-style: italic;
 }
 
+/* secondary header */
+.secondary-header-container {
+  background-color: #304ffe;
+  height: 160px;
+}
+
+.header-highlight {
+  background-color: #42a5f5;
+  height: 40px;
+}
+
+/* main pages styling */
 /* main container styling */
 .main-content-container {
   background: white;
@@ -236,7 +251,7 @@ button {
 }
 
 .main-sidenav-container a:hover {
-  color: #2979ff;
+  color: #304ffe;
 }
 
 /* main content box styling */
@@ -292,4 +307,81 @@ button {
 .main-content-box-header button {
   display: inline-block;
   float: right;
+}
+
+/* add page styling */
+/* add container */
+.add-content-container {
+  background: white;
+  max-width: 90%;
+  height: 1080px;
+  margin-top: -80px;
+  position: relative;
+  z-index: 2;
+}
+
+.add-content {
+  padding: 4em 0;
+}
+
+/* add form styling*/
+.add-form {
+  background-color: pin;
+  width: 40%;
+  margin: 0 auto;
+  padding: 7em 0;
+}
+
+.add-form label {
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.add-form label:last-child {
+  display: inline-block;
+}
+
+.add-form input {
+  width: 100%;
+}
+
+.add-form input[type="text"] {
+  padding: .5em 0 .5em 1em;
+  border-radius: 5px;
+  border: 1px solid #cfd8dc;
+}
+
+.add-form input:nth-child(6) {
+  display: block;
+}
+
+.add-form input[type="submit"] {
+  display: block;
+  padding: .9em 0;
+  margin: 0 auto;
+  margin-top: 2em;
+  width: 200px;
+  color: white;
+  transform: .2s ease-in-out;
+}
+
+.add-form input[type="submit"]:hover {
+  background-color: #42a5f5;
+}
+
+.add-form textarea {
+  width: 100%;
+  padding: .5em 0 .5em 1em;
+  border-radius: 5px;
+  border: 1px solid #cfd8dc;
+}
+
+.add-form select {
+  display: inline-block;
+  padding: .5em 1em;
+  border-radius: 5px;
+  width: 25%;
 }
