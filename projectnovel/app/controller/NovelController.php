@@ -27,7 +27,7 @@ class NovelController extends BaseController
     {
         $res = $this->novelService->findAll();
 
-        return view('pages/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
+        return view('pages/index/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }
 
     public function showNovel($id)
