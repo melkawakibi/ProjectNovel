@@ -6,14 +6,16 @@ class Novel{
 
     private $name;
     private $author;
+    private $description;
     private $genre;
     private $imgUrl;
     private $user_id;
 
-    public function __construct($name, $author, $genre, $imgUrl, $user_id)
+    public function __construct($name, $author, $description, $genre, $imgUrl, $user_id)
     {
         $this->name = $name;
         $this->author = $author;
+        $this->description = $description;
         $this->genre = $genre;
         $this->imgUrl = $imgUrl;
         $this->user_id = $user_id;
@@ -35,6 +37,9 @@ class Novel{
                 break;
             CASE "author":
                 $this->author = $value;
+                break;
+            CASE "description":
+                $this->description = $value;
                 break;
             CASE "genre":
                 $this->genre = $value;
