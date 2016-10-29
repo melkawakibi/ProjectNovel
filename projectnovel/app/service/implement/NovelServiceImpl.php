@@ -42,6 +42,7 @@ class NovelServiceImpl implements NovelService
             'form_params' => [
                 'name' => $novel->name,
                 'author' => $novel->author,
+                'description' => $novel->description,
                 'genre' => $novel->genre,
                 'imgUrl' => $novel->imgUrl,
                 'user_id' => $novel->user_id,

@@ -46,6 +46,9 @@ class NovelController extends BaseController
 
     public function createNovel(Request $request)
     {
+        $user_json_raw = $this->userService->find(1);
+        $user_json = json_decode($user_json_raw->getBody(), true);
+
         $input = $request->all();
         $file = array('image' => $request->file('image'));
 
@@ -62,14 +65,11 @@ class NovelController extends BaseController
             $newFileName = rand(11111,99999).'.'.$extension; // renameing image
             $newPath = Lang::get('strings.image_dir') . $newFileName;
             Image::make($image->getRealPath())->save($newPath);
-            $novel = new Novel($input['name'], $input['author'], $input['genre'], $newFileName, 1);
+            $novel = new Novel($input['name'], $user_json['data']['username'], $input['description'], $input['genre'], $newFileName, $user_json['data']['id']);
             $this->novelService->create($novel);
         };
 
-        $user_json_raw = $this->userService->find(1);
-        $user_json = json_decode($user_json_raw->getBody(), true);
         $res = $this->novelService->findNovelByUserIdLatestNovel($user_json['data']['id']);
-
         $novel = json_decode($res->getBody(), true);
         $id = $novel['data']['id'];
 

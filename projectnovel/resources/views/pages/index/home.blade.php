@@ -12,7 +12,7 @@
 
             @foreach($novels['data'] as $novel)
 
-                <li> <div class="main-image-container">{{Html::image($url . $novel['imgUrl'], '' , array('class' => 'imageclass') )}}</div> <div class="main-novel-info">{{ Html::link('novels/' . $novel['id'], $novel['name'])}}</div></li>
+                <li><a href="{{'novels/' . $novel['id'], $novel['name']}}"> <div class="main-image-container">{{Html::image($url . $novel['imgUrl'], '' , array('class' => 'imageclass') )}}</div> <div class="main-novel-info">{{ Html::link('novels/' . $novel['id'], $novel['name'])}}</div></a></li>
 
             @endforeach
 
