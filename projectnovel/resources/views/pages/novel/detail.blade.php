@@ -6,6 +6,7 @@
             {{ $novel['data']['id']  }}
             {{ $novel['data']['name']  }}
             {{ $novel['data']['author']  }} 
+            {{ $novel['data']['description']  }}
             @set('chapters', $novel['data']['chapter'])
             @set('id', $novel['data']['id'])
     @endif

@@ -23,14 +23,18 @@ class PageServiceImpl implements PageService
         $this->client = new Client();
     }
 
-    public function find()
+    public function find($nId, $cId, $pId)
     {
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . $nId . '/chapters/' . $cId . '/pages/' . $pId);
 
+        return $res;
     }
 
-    public function findAll()
+    public function findAll($nId, $cId)
     {
+        $res = $this->client->request('GET', Lang::get('strings.api_novels_url') . $nId . '/chapters/' . $cId . '/pages');
 
+        return $res;
     }
 
     public function create($input, $nId, $cId)

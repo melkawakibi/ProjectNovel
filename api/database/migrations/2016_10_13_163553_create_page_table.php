@@ -15,9 +15,9 @@ class CreatePageTable extends Migration
     {
         Schema::create('page', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('txt');
+            $table->text('txt');
             $table->string('imgUrl')->nullable();
-            $table->string('type');
+            $table->boolean('type');
             $table->integer('chapter_id')->unsigned();
             $table->timestamps();
         });

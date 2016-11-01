@@ -59,3 +59,8 @@ Route::get('/novels/{nId}/chapters/{cId}',  [
 Route::post('/novels/{nId}/create',  [
     'as' => 'chapter.create', 'uses' => 'ChapterController@createChapter'
 ]);
+
+//Pages
+Route::get('/novels/{nId}/chapters/{cId}/pages',  [
+    'as' => 'page.list', 'uses' => 'ChapterController@showPages'
+]);

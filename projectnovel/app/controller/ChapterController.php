@@ -37,17 +37,7 @@ class ChapterController extends BaseController
         return view('pages/')->with(array('chapter' => json_decode($res->getBody(), true)));
     }
 
-//No purpose jet
-//    public function showChapters($nId)
-//    {
-//        $res = $this->chapterService->findAll($nId);
-//
-//        return view('pages/')->with(array('chapters' => json_decode($res->getBody(), true)));
-//    }
-
     public function showCreateChapter($id){
-
-
 
         return view('pages/novel/add_chapter')->with(array('id' => $id));
     }
@@ -67,6 +57,15 @@ class ChapterController extends BaseController
         $resNovel = $this->novelService->find($nId);
 
         return redirect('/novels/' . $nId)->with(array('novels' => json_decode($resNovel->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
+    }
+
+    public function showPages($nId, $cId){
+
+        $resChapter = $this->chapterService->find($nId, $cId);
+
+        $resPages = $this->pageService->findAll($nId, $cId);
+
+        return view('pages/novel/read_chapter')->with(array('pages' => json_decode($resPages->getBody(), true), 'chapter' => json_decode($resChapter->getBody(), true)));
     }
 
 }

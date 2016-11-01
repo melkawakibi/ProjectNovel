@@ -10,7 +10,7 @@ namespace App\Service;
 
 interface PageService
 {
-    public function find();
-    public function findAll();
+    public function find($nId, $cId, $pId);
+    public function findAll($nId, $cId);
     public function create($page, $nId, $cId);
 }
