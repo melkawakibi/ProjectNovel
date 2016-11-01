@@ -18,7 +18,7 @@
 		{{ Form::label('genre', 'Genre') }}
 		{{ Form::select('genre', array('Action' => 'Action', 'Adventure','Comedy' => 'Comedy','Drama' => 'Drama','Fantasy' => 'Fantasy','Horror' => 'Horror','Mystery' => 'Mystery', 'Romance' => 'Romance', 'Sciencefiction' => 'Sciencefiction', 'Thriller' => 'Thriller')) }}
 
-		{{ Form::submit('Create', array('class' => 'btn btn-primary')) }}
+		{{ Form::submit('Create my novel', array('class' => 'btn btn-primary')) }}
 
 		{{ Form::close() }}
 
