@@ -3,22 +3,18 @@
 
     <div class="detail-header">
         @if(! empty($novel))
-        <div class="cover-image-container">
-                {{Html::image($url . $novel['data']['imgUrl'], null, array('class' => 'cover-image'))}}
-            <div class="semi-transparent-layer"></div>
-        </div>
-        <div class="novel-detail-wrapper">
+
             <div class="cover-box">
                 {{Html::image($url . $novel['data']['imgUrl'],null,array('class'=>'coverbox-image'))}}
             </div>
-                
-                {{ $novel['data']['id']  }}
-                {{ $novel['data']['name']  }}
-                {{ $novel['data']['author']  }}
-                {{ $novel['data']['description']  }}
+            <div class="detail-info">
+                <h1 class="novel-detail-title">{{ $novel['data']['name']}}</h1>
+                <div class="novel-detail-author"> By <a href="#">{{ $novel['data']['author']  }}</a></div>
+                <div class="novel-detail-description">{{ $novel['data']['description']  }}</div>
+                <div class="novel-detail-genre"><a href="#">{{ $novel['data']['genre']  }}</a></div>
+            </div>
                 @set('chapters', $novel['data']['chapter']) 
                 @set('id', $novel['data']['id'])
-        </div>
         @endif
     </div>
     <div class="chapter-list"> 
