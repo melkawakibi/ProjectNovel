@@ -15,12 +15,12 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->group(['prefix' => 'api'], function($app){
+$app->group(['prefix' => 'api', 'middeware' => 'auth:api'], function($app){
 
     //User
     $app->get('/users', 'App\Http\Controllers\UserController@showUsers');
     $app->get('/users/{id}', 'App\Http\Controllers\UserController@showUser');
-    //$app->post('/users/create', 'App\Http\Controllers\Controller@store');
+    $app->post('/users/create', 'App\Http\Controllers\UserController@storeUser');
 
     //Novel
     $app->get('/novels', 'App\Http\Controllers\NovelController@showNovels');

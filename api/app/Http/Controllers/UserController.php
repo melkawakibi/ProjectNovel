@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Transformers\UserTransformer;
+use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -22,6 +23,17 @@ class UserController extends ApiController
     public function __construct(User $user)
     {
         $this->user = $user;
+    }
+
+    public function storeUser(Request $req){
+
+        $this->user = new User();
+        $this->user->username = $req->get('username');
+        $this->user->password = $req->get('password');
+        $this->user->email = $req->get('email');
+        $this->user->api_token = $req->get('api_token');
+        $this->user->save();
+
     }
 
     public function showUsers(Manager $fractal, UserTransformer $userTransformer){

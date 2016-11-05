@@ -17,7 +17,8 @@ class CreateChapterTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('novel_id')->unsigned();
-            $table->timestamps();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
 
         Schema::table('chapter', function($table){

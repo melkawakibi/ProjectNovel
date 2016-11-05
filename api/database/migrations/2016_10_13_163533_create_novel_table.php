@@ -21,7 +21,8 @@ class CreateNovelTable extends Migration
             $table->string('genre');
             $table->string('imgUrl')->nullable();
             $table->integer('user_id')->unsigned();
-            $table->timestamps();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
 
         Schema::table('novel', function($table){

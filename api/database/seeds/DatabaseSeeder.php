@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
                 'username' => $faker->userName,
                 'password' => $faker->password,
                 'email' => $faker->email,
-                'created_at' => $faker->dateTime,
-                'updated_at' => $faker->dateTime,
             ]);
         }
 

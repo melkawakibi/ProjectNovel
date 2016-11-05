@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Controller;
 
 use App\User;
 use Validator;
@@ -37,6 +37,12 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function showRegister(){
+
+        return view('pages/index/register');
+
     }
 
     /**

@@ -19,7 +19,8 @@ class CreatePageTable extends Migration
             $table->string('imgUrl')->nullable();
             $table->boolean('type');
             $table->integer('chapter_id')->unsigned();
-            $table->timestamps();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
 
         Schema::table('page', function($table){

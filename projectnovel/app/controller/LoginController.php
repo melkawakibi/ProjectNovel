@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Controller;
 
 use App\Http\Controllers\Controller;
+use App\Model\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -25,15 +27,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
 }

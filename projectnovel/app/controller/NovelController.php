@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Lang;
 use Validator;
 use Image;
+use Auth;
 
 class NovelController extends BaseController
 {
@@ -26,6 +27,7 @@ class NovelController extends BaseController
     public function showHomeNovels()
     {
         $res = $this->novelService->findAll();
+
 
         return view('pages/index/home')->with(array('novels' => json_decode($res->getBody(), true), 'url' => Lang::get('strings.image_cover_url')));
     }

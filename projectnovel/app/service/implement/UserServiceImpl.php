@@ -38,6 +38,16 @@ class UserServiceImpl implements UserService
 
     public function create($user)
     {
-        // TODO: Implement create() method.
+        $res = $this->client->request('POST', Lang::get('strings.base_api_url') . 'users/create', [
+            'form_params' => [
+                'username' => $user->username,
+                'password' => $user->password,
+                'email' => $user->email,
+                'api_token' => $user->api_token,
+            ]
+        ]);
+
+        return $res;
     }
+
 }

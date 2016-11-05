@@ -2,17 +2,21 @@
 
 namespace App\Model;
 
-class User
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
 {
     private $username;
     private $password;
     private $email;
+    private $api_token;
 
-    public function __construct($username, $password, $email)
+    public function __construct($username, $password, $email, $api_token)
     {
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
+        $this->api_token = $api_token;
 
     }
 
@@ -33,6 +37,9 @@ class User
                 break;
             CASE "email":
                 $this->email = $value;
+                break;
+            CASE "api_token":
+                $this->api_token = $value;
                 break;
             default:
                 echo $name . " Not Found";

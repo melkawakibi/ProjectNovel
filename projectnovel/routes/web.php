@@ -13,7 +13,11 @@
 
 //Home
 Route::get('/',  [
-    'as' => 'home.list', 'uses' => 'NovelController@showHomeNovels'
+    'as' => 'home.page', 'uses' => 'NovelController@showHomeNovels'
+]);
+
+Route::get('/register',  [
+    'as' => 'register.page', 'uses' => 'RegisterController@showRegister'
 ]);
 
 Route::get('/popular_novels', function () {
@@ -36,6 +40,11 @@ Route::get('/novels/{nId}/add_chapter',  [
 Route::get('/add_chapter', function () {
     return view('pages/novel/add_chapter');
 });
+
+//User
+Route::post('/user/create',  [
+    'as' => 'user.create', 'uses' => 'UserController@createUser'
+]);
 
 //Novel
 Route::get('/novels',  [
