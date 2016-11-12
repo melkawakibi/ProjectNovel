@@ -16,31 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `chapter`
+-- Table structure for table `novel`
 --
 
-DROP TABLE IF EXISTS `chapter`;
+DROP TABLE IF EXISTS `novel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `chapter` (
+CREATE TABLE `novel` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `novel_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `genre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `imgUrl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `chapter_novel_id_foreign` (`novel_id`),
-  CONSTRAINT `chapter_novel_id_foreign` FOREIGN KEY (`novel_id`) REFERENCES `novel` (`id`)
+  KEY `novel_user_id_foreign` (`user_id`),
+  CONSTRAINT `novel_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `chapter`
+-- Dumping data for table `novel`
 --
 
-LOCK TABLES `chapter` WRITE;
-/*!40000 ALTER TABLE `chapter` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chapter` ENABLE KEYS */;
+LOCK TABLES `novel` WRITE;
+/*!40000 ALTER TABLE `novel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `novel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-29 20:30:49
+-- Dump completed on 2016-11-12 20:08:27
